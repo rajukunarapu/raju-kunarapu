@@ -1,17 +1,35 @@
-<img id="img-banner" src="{{ 'Frame.png' | asset_url }}" width="100%" height="420x" >
+<img id="img-banner" src="{{ 'Frame.png' | asset_url }}" width="100%" height="420px">
 
 {% style %}
-  #img-banner{
-    filter : contrast(150%);
+  #img-banner {
+    filter: contrast(150%);
   }
-{% endstyle %} }
-
+{% endstyle %}
 
 {% schema %}
-  {
-    "name": "image-banner-new",
-    "settings": [
-      
-    ]
-  }
+{
+  "name": "Image Banner New",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Upload Banner Image"
+    },
+    {
+      "type": "range",
+      "id": "contrast_level",
+      "label": "Contrast Level",
+      "min": 100,
+      "max": 200,
+      "step": 10,
+      "default": 150
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner New",
+      "category": "Image"
+    }
+  ]
+}
 {% endschema %}
