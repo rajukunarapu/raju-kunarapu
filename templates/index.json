@@ -9,7 +9,13 @@
  */
 {
   "sections":{
+    "image-banner":{
+      "type":"image-banner-new",
+      "settings":{
+        
+      }
+    }
     
   },
-  "order":[]
+  "order":["image-banner"]
 }
