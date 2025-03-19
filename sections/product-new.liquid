@@ -205,9 +205,33 @@ function openModal(image, title, price, description) {
   document.getElementById("modalPrice").textContent = price;
   document.getElementById("modalDescription").innerHTML = description;
   document.getElementById("productModal").style.display = "block";
+  document.querySelector(".add-to-cart").onclick = function () {
+    addToCart(image, title, price);
+  };
 }
 
 function closeModal() {
   document.getElementById("productModal").style.display = "none";
+}
+
+let cart = [];
+function addToCart(image, title, price) {
+  let product = { image, title, price };
+
+  // Check if item is already in the cart
+  let existingItem = cart.find(item => item.title === title);
+  if (existingItem) {
+    alert("This product is already in your cart!");
+    return;
+  }
+
+  cart.push(product);
+  alert("Product added to cart!");
+  updateCartUI();
+}
+
+// Function to update the cart UI (Example: Logging items for now)
+function updateCartUI() {
+  console.log("Cart Updated:", cart);
 }
 </script>
