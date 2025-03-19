@@ -15,24 +15,28 @@
 <div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    <div id="product-div" >
-      <div id="product-image" >
+    
+    <!-- Product Details -->
+    <div id="product-details">
+      <div id="product-image">
         <img id="modalImage" src="" alt="">
       </div>
-      <div id="product-content" >
-        <h4 id="modalTitle" style="font-weight:normal;" ></h4>
+      <div id="product-content">
+        <h4 id="modalTitle"></h4>
         <p id="modalPrice"></p>
         <p id="modalDescription"></p>
       </div>
     </div>
-    
-    <div id="product-color" >
+
+    <!-- Color Selection -->
+    <div id="product-color">
       <label>Color:</label>
-      <button class="color-option">Blue</button>
+      <button class="color-option">White</button>
       <button class="color-option">Black</button>
     </div>
-    
-    <div id="product-size" >
+
+    <!-- Size Selection -->
+    <div id="product-size">
       <label>Size:</label>
       <select>
         <option>Choose your size</option>
@@ -42,7 +46,8 @@
         <option>XL</option>
       </select>
     </div>
-    
+
+    <!-- Add to Cart Button -->
     <button class="add-to-cart">ADD TO CART →</button>
   </div>
 </div>
@@ -53,13 +58,13 @@
   text-align: center;
 }
 
-.container h2{
-  text-align : start;
-  font-weight : normal;
+.container h2 {
+  text-align: start;
+  font-weight: normal;
 }
 
 .grid {
-  margin-top : 20px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
@@ -87,49 +92,95 @@
 .modal-content {
   background: white;
   padding: 20px;
-  height : 447px;
-  width: 311px;
+  width: 340px;
   margin: 10% auto;
   text-align: center;
   border-radius: 8px;
-}
-
-#product-div{
-  display : flex;
-}
-
-#product-image{
-  width : 120px ;
-  height : 140px;
-}
-
-#modalTitle h4{
-  font-weight : normal;
-}
-#modalPrice{
-  
-}
-#modalDescription{
-  
-}
-
-#modalImage{
-  width : 100%;
-  height : 100%;
-  background-size : cover;
-}
-
-.close {
   position: relative;
-  right : 10px;
-  font-size: 40px;
+}
+
+/* Flexbox for image & content */
+#product-details {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+#product-image {
+  width: 120px;
+  height: 140px;
+}
+
+#modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#product-content {
+  text-align: left;
+  flex: 1;
+}
+
+#product-content h4 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+#modalPrice {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#modalDescription {
+  font-size: 14px;
+  color: gray;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
   cursor: pointer;
 }
 
-.color-option, .add-to-cart {
-  margin-top: 10px;
-  padding: 10px 15px;
+/* Color & Size */
+#product-color, #product-size {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.color-option {
+  background: white;
+  border: 1px solid black;
+  padding: 8px 15px;
   cursor: pointer;
+  margin-right: 5px;
+}
+
+.color-option:hover {
+  background: black;
+  color: white;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  margin-top: 15px;
+  width: 100%;
+  background: black;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-to-cart:hover {
+  background: darkgray;
 }
 {% endstyle %}
 
