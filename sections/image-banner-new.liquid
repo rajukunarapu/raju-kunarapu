@@ -11,9 +11,9 @@
     
     <div class="img-1" style="background-image:url('Frame.svg' | asset_url)" >
       <div class="header" >
-        <h3>Tisso vision</h3>
+        <h3>TISSO VISION</h3>
         <h5>Find the ideal gift for your loved ones</h5>
-        <button>Choose gift</button>
+        <button id="btn" >Choose gift</button>
       </div>
     </div>
     
@@ -25,10 +25,14 @@
 
 
 {% style %}
-.full-width-img {
-    width: 100%;
-    height: 400px; 
-    object-fit: cover; 
-    display: block; 
+.header{
+  padding: 2px;
+  position : absolute;
+  z-index : 10;
+  background-color : 'lightgray'
+}
+#btn{
+  background-color:'yellow' ;
+  color
 }
 {% endstyle %}
