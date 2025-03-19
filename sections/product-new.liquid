@@ -1,22 +1,17 @@
-{% schema %}
-{
-  "name": "Featured Collection",
-  "settings": []
-}
-{% endschema %}
-
 <section class="featured-collection">
   <div class="container">
     <h2>Tisso vision in the wild</h2>
     <div class="grid">
       {% for product in collections['all'].products limit:6 %}
-         <div class="product" onclick="openModal('{{ product.featured_image | img_url }}', '{{ product.title }}', '{{ product.price }}')">
+        <div class="product" onclick="openModal('{{ product.featured_image | img_url }}', '{{ product.title }}', '{{ product.price }}')">
           <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}">
+        </div>
       {% endfor %}
     </div>
   </div>
 </section>
 
+<!-- Product Modal -->
 <div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
@@ -40,36 +35,25 @@
 </div>
 
 {% style %}
-
 .featured-collection {
   padding: 50px 0;
   text-align: center;
 }
 
-.container h2 {
-  text-align: start;
-  margin-left: 20px;
-  font-weight: normal;
-}
-
-/* Fixing Uneven Gaps */
 .grid {
-  margin: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  
-  column-gap: 15px;  
-  row-gap: 10px;  
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
-
-/* Fixing Image Stretching */
 
 .product img {
-  max-width: 100%;  
-  height: 440px;  
+  width: 100%;
+  height: 440px;
   object-fit: cover;
-  border-radius: 5px;
-  cursor : pointer;
+  cursor: pointer;
 }
+
+/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -116,4 +100,3 @@ function closeModal() {
   document.getElementById("productModal").style.display = "none";
 }
 </script>
-
