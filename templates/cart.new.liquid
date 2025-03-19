@@ -1,0 +1,78 @@
+{% layout 'theme' %}
+<h2>Your Cart</h2>
+
+{% if cart.item_count > 0 %}
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart.items %}
+                <tr>
+                    <td><img src="{{ item.image | img_url: 'small' }}" alt="{{ item.product.title }}"></td>
+                    <td>{{ item.product.title }}</td>
+                    <td>
+                        <input type="number" name="updates[]" value="{{ item.quantity }}" min="1" data-key="{{ item.key }}">
+                    </td>
+                    <td>${{ item.final_line_price | money_without_trailing_zeros }}</td>
+                    <td>
+                        <button class="remove-item" data-key="{{ item.key }}">Remove</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><strong>Total: </strong> ${{ cart.total_price | money_without_trailing_zeros }}</p>
+    
+    <form action="/cart" method="post">
+        <input type="submit" value="Update Cart">
+    </form>
+
+    <a href="/checkout" class="checkout-btn">Proceed to Checkout</a>
+{% else %}
+    <p>Your cart is empty.</p>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Remove Item from Cart
+    document.querySelectorAll(".remove-item").forEach(button => {
+        button.addEventListener("click", function () {
+            let key = this.getAttribute("data-key");
+
+            fetch('/cart/change.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: key, quantity: 0 })
+            })
+            .then(response => response.json())
+            .then(data => location.reload())
+            .catch(error => console.error('Error:', error));
+        });
+    });
+
+    // Update Cart Quantity
+    document.querySelectorAll("input[name='updates[]']").forEach(input => {
+        input.addEventListener("change", function () {
+            let key = this.getAttribute("data-key");
+            let quantity = this.value;
+
+            fetch('/cart/change.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: key, quantity: quantity })
+            })
+            .then(response => response.json())
+            .then(data => location.reload())
+            .catch(error => console.error('Error:', error));
+        });
+    });
+});
+</script>
