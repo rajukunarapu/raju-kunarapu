@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "hero-banner": {
+    "img-banner": {
       "type": "image-banner-new",
       "settings": {}
     },
@@ -21,7 +21,7 @@
     }
   },
   "order": [
-    "hero-banner",
+    "img-banner",
     "featured-collection"
   ]
 }
