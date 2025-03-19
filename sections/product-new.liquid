@@ -10,9 +10,8 @@
     <h2>Tisso vision in the wild</h2>
     <div class="grid">
       {% for product in collections['all'].products limit:6 %}
-        <div class="product">
-          <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}" >
-        </div>
+         <div class="product" onclick="openModal('{{ product.featured_image | img_url }}', '{{ product.title }}', '{{ product.price }}')">
+          <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}">
       {% endfor %}
     </div>
   </div>
