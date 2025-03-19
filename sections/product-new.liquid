@@ -3,7 +3,7 @@
     <h2>Tisso vision in the wild</h2>
     <div class="grid">
       {% for product in collections['all'].products limit:6 %}
-        <div class="product" onclick="openModal('{{ product.featured_image | img_url }}', '{{ product.title }}', '{{ product.price | money_with_currency }}','{{ product.description }}')">
+        <div class="product" onclick="openModal('{{ product.featured_image | img_url }}', '{{ product.title }}', '{{ product.price | money_without_trailing_zeros }}','{{ product.description }}')">
           <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}">
         </div>
       {% endfor %}
