@@ -18,6 +18,7 @@
     <img id="modalImage" src="" alt="">
     <h2 id="modalTitle"></h2>
     <p id="modalPrice"></p>
+    <p id="modalDescription"></p>
     <label>Color:</label>
     <button class="color-option">Blue</button>
     <button class="color-option">Black</button>
@@ -100,10 +101,11 @@
 {% endstyle %}
 
 <script>
-function openModal(image, title, price) {
+function openModal(image, title, price, desciption) {
   document.getElementById("modalImage").src = image;
   document.getElementById("modalTitle").textContent = title;
   document.getElementById("modalPrice").textContent = price;
+  document.getElementById("modalDescription").textContent = description;
   document.getElementById("productModal").style.display = "block";
 }
 
