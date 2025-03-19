@@ -14,7 +14,7 @@
       "settings": {}
     },
     "featured-collection": {
-      "type": "featured-collection",
+      "type": "product-new",
       "settings": {
         "collection": "best-sellers"
       }
