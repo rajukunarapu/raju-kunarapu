@@ -18,6 +18,28 @@
   </div>
 </section>
 
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="">
+    <h2 id="modalTitle"></h2>
+    <p id="modalPrice"></p>
+    <label>Color:</label>
+    <button class="color-option">Blue</button>
+    <button class="color-option">Black</button>
+    <br>
+    <label>Size:</label>
+    <select>
+      <option>Choose your size</option>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
+    <button class="add-to-cart">ADD TO CART →</button>
+  </div>
+</div>
+
 {% style %}
 
 .featured-collection {
