@@ -9,7 +9,7 @@
 <div class="container" >
   <div class="frame1" >
     <div class="img-1" >
-      
+      <img src={{ 'Frame.svg' | asset_url }} alt="background-img" class="full-width-img">
     </div>
     <div class="img-2" >
       
@@ -21,14 +21,13 @@
   </div>
 </div>
 
-<img src={{ 'Frame.svg' | asset_url }} alt="background-img" class="full-width-img">
 
 {% style %}
 .full-width-img {
     padding:12px ;
-    width: 100vw;  /* Full width of the page */
-    height: 400px; /* Fixed height */
-    object-fit: cover; /* Ensures it fills the area without distortion */
-    display: block; /* Removes any unwanted spaces */
+    width: 100vw; 
+ height: 400px; 
+    object-fit: cover; 
+    display: block; 
 }
 {% endstyle %}
