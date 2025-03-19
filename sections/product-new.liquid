@@ -207,7 +207,6 @@ function openModal(image, title, price, description) {
   document.getElementById("productModal").style.display = "block";
   document.querySelector(".add-to-cart").onclick = function () {
     addToCart(image, title, price);
-    document.getElementById("productModal").style.display = "none";
   };
 }
 
@@ -228,6 +227,7 @@ function addToCart(image, title, price) {
 
   cart.push(product);
   alert("Product added to cart!");
+  document.getElementById("productModal").style.display = "none";
   updateCartUI();
 }
 
