@@ -9,7 +9,7 @@
   <div class="container">
     <h2>Tisso vision in the wild</h2>
     <div class="grid">
-      {% for product in collections[section.settings.collection].products limit:4 %}
+      {% for product in collections[all_products].products limit:6 %}
         <div class="product">
           <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
           <h3>{{ product.title }}</h3>
