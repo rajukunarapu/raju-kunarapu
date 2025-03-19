@@ -11,7 +11,7 @@
     <div class="grid">
       {% for product in collections['all'].products limit:6 %}
         <div class="product">
-          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}">
           <h3>{{ product.title }}</h3>
           <p>{{ product.price | money }}</p>
           <a href="{{ product.url }}" class="btn">View Product</a>
