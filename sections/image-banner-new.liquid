@@ -1,35 +1,24 @@
-<img id="img-banner" src="{{ 'Frame.png' | asset_url }}" width="100%" height="420px">
-
-{% style %}
-  #img-banner {
-    filter: contrast(150%);
-  }
-{% endstyle %}
-
-{% schema %}
 {
-  "name": "Image Banner New",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Upload Banner Image"
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "image": "hero-image.jpg",
+        "heading": "The Gift Guide",
+        "subheading": "Find the perfect gifts for your loved ones.",
+        "button_text": "Shop Now",
+        "button_link": "/collections/all"
+      }
     },
-    {
-      "type": "range",
-      "id": "contrast_level",
-      "label": "Contrast Level",
-      "min": 100,
-      "max": 200,
-      "step": 10,
-      "default": 150
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "best-sellers",
+        "title": "Tisso Vision in the Wild",
+        "grid": 3
+      }
     }
-  ],
-  "presets": [
-    {
-      "name": "Image Banner New",
-      "category": "Image"
-    }
-  ]
+  },
+  "order": ["hero", "featured-collection"]
 }
-{% endschema %}
+
