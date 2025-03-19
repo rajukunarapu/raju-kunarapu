@@ -9,12 +9,19 @@
  */
 {
   "sections": {
-    "image-banner": {
+    "hero-banner": {
       "type": "image-banner-new",
       "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "best-sellers"
+      }
     }
   },
   "order": [
-    "image-banner"
+    "hero-banner",
+    "featured-collection"
   ]
 }
