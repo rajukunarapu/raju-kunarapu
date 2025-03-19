@@ -24,26 +24,36 @@
   padding: 50px 0;
   text-align: center;
 }
-.container h2{
-  text-align : start;
-  margin-left : 20px;
-  font-weight : normal;
-}
-.grid {
-  margin :20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px;
+
+.container h2 {
+  text-align: start;
+  margin-left: 20px;
+  font-weight: normal;
 }
 
+/* Fixing Uneven Gaps */
+.grid {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 products per row */
+  column-gap: 15px;  /* Adjust column spacing */
+  row-gap: 10px;  /* Adjust row spacing */
+}
+
+/* Fixing Image Stretching */
 .product {
-  height: 444px; 
-  width : 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow: hidden;
 }
 
 .product img {
-  width: 100%;  
-  height: 100%; 
+  max-width: 100%;  /* Ensures image does not exceed container */
+  height: auto;  /* Maintains original aspect ratio */
   object-fit: cover;
+  border-radius: 5px; /* Optional: Adds smooth rounded edges */
 }
 {% endstyle %}
