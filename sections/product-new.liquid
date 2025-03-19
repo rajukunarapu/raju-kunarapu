@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(response => response.json())
     .then(data => {
-      alert("Product added to cart!");
+      document.getElementById("productModal").style.display = "none";
     })
     .catch(error => console.error('Error:', error));
   });
