@@ -214,25 +214,23 @@ function closeModal() {
   document.getElementById("productModal").style.display = "none";
 }
 
-let cart = [];
-  
-function addToCart(image, title, price) {
-  let product = { image, title, price };
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".add-to-cart").addEventListener("click", function () {
+        let productId = this.getAttribute("data-id");
 
-  // Check if item is already in the cart
-  let existingItem = cart.find(item => item.title === title);
-  if (existingItem) {
-    alert("This product is already in your cart!");
-    return;
-  }
-
-  cart.push(product);
-  document.getElementById("productModal").style.display = "none"
-  updateCartUI();
-}
-
-// Function to update the cart UI (Example: Logging items for now)
-function updateCartUI() {
-  console.log("Cart Updated:", cart);
-}
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: productId,
+                quantity: 1
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Product added to cart!");
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
 </script>
