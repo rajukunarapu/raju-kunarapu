@@ -41,38 +41,4 @@
 {% endif %}
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Remove Item from Cart
-    document.querySelectorAll(".remove-item").forEach(button => {
-        button.addEventListener("click", function () {
-            let key = this.getAttribute("data-key");
-
-            fetch('/cart/change.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: key, quantity: 0 })
-            })
-            .then(response => response.json())
-            .then(data => location.reload())
-            .catch(error => console.error('Error:', error));
-        });
-    });
-
-    // Update Cart Quantity
-    document.querySelectorAll("input[name='updates[]']").forEach(input => {
-        input.addEventListener("change", function () {
-            let key = this.getAttribute("data-key");
-            let quantity = this.value;
-
-            fetch('/cart/change.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: key, quantity: quantity })
-            })
-            .then(response => response.json())
-            .then(data => location.reload())
-            .catch(error => console.error('Error:', error));
-        });
-    });
-});
 </script>
