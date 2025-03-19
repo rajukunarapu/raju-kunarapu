@@ -190,7 +190,7 @@ function openModal(image, title, price, description) {
   document.getElementById("modalImage").src = image;
   document.getElementById("modalTitle").textContent = title;
   document.getElementById("modalPrice").textContent = price;
-  document.getElementById("modalDescription").textContent = description;
+  document.getElementById("modalDescription").innerHTML = description;
   document.getElementById("productModal").style.display = "block";
 }
 
