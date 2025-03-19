@@ -1,37 +1,69 @@
 {% schema %}
 {
   "name": "Hero Banner",
-  "settings": [
-  ],
+  "settings": []
 }
 {% endschema %}
 
-<div class="container" >
-  <div class="frame1" >
-    
-    <div class="img-1" style="background-image:url('Frame.svg' | asset_url)" >
-      <div class="header" >
+<div class="container">
+  <div class="frame1">
+    <div class="img-1">
+      <div class="header">
         <h3>TISSO VISION</h3>
         <h5>Find the ideal gift for your loved ones</h5>
-        <button id="btn" >CHOOSE GIFT</button>
+        <button id="btn">CHOOSE GIFT</button>
       </div>
     </div>
-    
-    <div class="img-2" ></div>
   </div>
-  
-  <div class="fram2" ></div>
 </div>
 
-
 {% style %}
-.header{
-  padding: 2px;
-  position : absolute;
-  z-index : 10;
-  background-color : 'lightgray'
+.container {
+  width: 100%;
 }
-#btn{
-  background-color:'yellow' ;
+
+.frame1 {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.img-1 {
+  width: 100%;
+  height: 400px;
+  background-image: url({{ 'Frame.svg' | asset_url }});
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7); /* Light background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header h5 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+#btn {
+  background-color: yellow;
+  padding: 10px 15px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 {% endstyle %}
