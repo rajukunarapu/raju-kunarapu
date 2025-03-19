@@ -63,7 +63,7 @@
 /* Modal Styles */
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
@@ -80,13 +80,14 @@
   margin: 10% auto;
   text-align: center;
   border-radius: 8px;
+  position : absolute;
 }
 
 .modal-content h2{
 }
 
 .close {
-  position: absolute;
+  position: relative;
   right: 15px;
   font-size: 20px;
   cursor: pointer;
