@@ -215,22 +215,22 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".add-to-cart").addEventListener("click", function () {
-        let productId = this.getAttribute("data-id");
+  document.querySelector(".add-to-cart").addEventListener("click", function () {
+    let productId = this.getAttribute("data-id");
 
-        fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                id: productId,
-                quantity: 1
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert("Product added to cart!");
-        })
-        .catch(error => console.error('Error:', error));
-    });
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: productId,
+        quantity: 1
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Product added to cart!");
+    })
+    .catch(error => console.error('Error:', error));
+  });
 });
 </script>
